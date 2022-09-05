@@ -34,6 +34,9 @@ public class StartNode extends Thread {
 		}
 		System.out.println("Acabe de enviar");
 		
+		//Espera a que todo haya sido consumido para enviar los mensajes de terminacion
+		while(!deliveryBuffer.isEmpty()) {}
+		
 		i = 0;
 		while(i < 3) {
 			if(deliveryBuffer.activeLoad(new String("FIN"))) { 
@@ -41,5 +44,6 @@ public class StartNode extends Thread {
 				System.out.println("Acabe de enviar un FIN" + i);
 			}
 		}
+		System.out.println("El start NODE termino");
 	}
 }

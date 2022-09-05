@@ -63,11 +63,6 @@ public class Buffer {
 		}
 		lastLoadedIndex++;
 		notifyAll();
-		try {
-			Thread.sleep(ThreadLocalRandom.current().nextInt(600, 2000));
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
 	}
 	
 	/**
@@ -129,5 +124,9 @@ public class Buffer {
 		lastLoadedIndex--;
 		notifyAll();
 		return ans;
+	}
+	
+	public boolean isEmpty() {
+		return lastLoadedIndex == -1;
 	}
 }
