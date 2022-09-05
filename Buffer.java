@@ -38,26 +38,26 @@ public class Buffer {
 	 * @param payload - mensaje a cargar
 	 */
 	public synchronized void load(String payload) {
-		boolean meMimi = false;
+//		boolean meMimi = false;
 		while(lastLoadedIndex+1 == bufferSize) {
-			System.out.println("El proceso " + payload + " se mimio");
+//			System.out.println("El proceso " + payload + " se mimio");
 			try {
 				wait();
-				meMimi = true;
+//				meMimi = true;
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
 		}
 		if(lastLoadedIndex == -1) {
-			if(meMimi) { 
-				System.out.println("El proceso: " + payload + " se desperto");
-			}
+//			if(meMimi) { 
+//				System.out.println("El proceso: " + payload + " se desperto");
+//			}
 			memory[0] = payload;
 			System.out.println("El proceso " + payload + " se cargo");
 		} else {
-			if(meMimi) { 
-				System.out.println("El proceso: " + payload + " se desperto");
-			}
+//			if(meMimi) { 
+//				System.out.println("El proceso: " + payload + " se desperto");
+//			}
 			memory[lastLoadedIndex+1] = payload;
 			System.out.println("El proceso " + payload + " se cargo");
 		}
@@ -126,7 +126,7 @@ public class Buffer {
 		return ans;
 	}
 	
-	public boolean isEmpty() {
+	public synchronized boolean estaVacio() {
 		return lastLoadedIndex == -1;
 	}
 }

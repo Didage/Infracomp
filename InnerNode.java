@@ -54,10 +54,13 @@ public class InnerNode extends Thread {
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
+				deliveryBuffer.load(payload);
 			} else {
 				end = true;
+				while(!deliveryBuffer.estaVacio()) {
+				}
+				deliveryBuffer.load(payload);
 			}
-			deliveryBuffer.load(payload);
 		}
 		System.out.println("El proceso " + levelId + innerProcessId + " terminó.");
 	}

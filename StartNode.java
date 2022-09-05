@@ -35,7 +35,8 @@ public class StartNode extends Thread {
 		System.out.println("Acabe de enviar");
 		
 		//Espera a que todo haya sido consumido para enviar los mensajes de terminacion
-		while(!deliveryBuffer.isEmpty()) {}
+		while(!deliveryBuffer.estaVacio()) {
+		}
 		
 		i = 0;
 		while(i < 3) {

@@ -36,13 +36,13 @@ public class EndNode extends Thread {
 		while(n!=0) {
 				String downloadedMessage = entryBuffer.activeUnload();
 				if(downloadedMessage.equals("FIN")) {
-					System.out.println("me llego un FIN");
+					//no hace nada en este caso
 				} else if(!downloadedMessage.equals("")) {
 					message = message + downloadedMessage + "\n";
 					n--;
-					System.out.println("Baje algo: "+ message);
+					System.out.println("\nBaje algo: \n"+ message);
 				}			
 		}
-		System.out.println("El mensaje es: " + message);
+		System.out.println("El mensaje es: \n" + message);
 	}
 }
