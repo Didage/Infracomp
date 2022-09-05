@@ -1,7 +1,5 @@
 package Caso1;
 
-import java.util.concurrent.ThreadLocalRandom;
-
 public class Buffer {
 	
 	private String id;
@@ -30,7 +28,7 @@ public class Buffer {
 		memory = new String[bufferSize];
 		lastLoadedIndex = -1;
 		this.id = id;
-		System.out.println(id);
+//		System.out.println(id);
 	}
 	
 	/**
@@ -126,7 +124,7 @@ public class Buffer {
 		return ans;
 	}
 	
-	public synchronized boolean estaVacio() {
+	public synchronized boolean isEmpty() {
 		return lastLoadedIndex == -1;
 	}
 }

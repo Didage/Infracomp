@@ -57,26 +57,42 @@ public class InnerNode extends Thread {
 				deliveryBuffer.load(payload);
 			} else {
 				end = true;
-				while(!deliveryBuffer.estaVacio()) {
+				while(!deliveryBuffer.isEmpty()) {
 				}
 				deliveryBuffer.load(payload);
 			}
 		}
-		System.out.println("El proceso " + levelId + innerProcessId + " terminó.");
+//		System.out.println("El proceso " + levelId + innerProcessId + " terminó.");
 	}
 
+	/**
+	 * metodo de apoyo
+	 * @return
+	 */
 	public Buffer getEntryBuffer() {
 		return entryBuffer;
 	}
 
+	/**
+	 * metodo de apoyo
+	 * @return
+	 */
 	public Buffer getDeliveryBuffer() {
 		return deliveryBuffer;
 	}
 
+	/**
+	 * metodo de apoyo
+	 * @return
+	 */
 	public int getLevelId() {
 		return levelId;
 	}
 
+	/**
+	 * metodo de apoyo
+	 * @return
+	 */
 	public int getInnerProcessId() {
 		return innerProcessId;
 	}

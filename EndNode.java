@@ -40,9 +40,9 @@ public class EndNode extends Thread {
 				} else if(!downloadedMessage.equals("")) {
 					message = message + downloadedMessage + "\n";
 					n--;
-					System.out.println("\nBaje algo: \n"+ message);
+//					System.out.println("\nBaje algo: \n"+ message);
 				}			
 		}
-		System.out.println("El mensaje es: \n" + message);
+		System.out.println("\nEl mensaje es: \n" + message);
 	}
 }
