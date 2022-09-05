@@ -33,5 +33,13 @@ public class StartNode extends Thread {
 			}
 		}
 		System.out.println("Acabe de enviar");
+		
+		i = 0;
+		while(i < 3) {
+			if(deliveryBuffer.activeLoad(new String("FIN"))) { 
+				i++;
+				System.out.println("Acabe de enviar un FIN" + i);
+			}
+		}
 	}
 }

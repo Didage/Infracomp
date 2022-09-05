@@ -1,5 +1,8 @@
 package Caso1;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 public class Main {
@@ -31,11 +34,40 @@ public class Main {
 	
 	public static void main(String[] args) {
 		
+		//Lectura de los datos
+		
+		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+		String entrada = "";
+	 
+		System.out.println("Ingrese el número de subconjuntos N: ");
+		
+        try {
+			entrada = reader.readLine();
+			cantMensajes = Integer.parseInt(entrada);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+        
+        System.out.println("Ingrese el tamaño de los buzones grandes: ");
+		
+        try {
+			entrada = reader.readLine();
+			bigBufferSize = Integer.parseInt(entrada);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+        
+        System.out.println("Ingrese el tamaño de los buzones chiquitos: ");
+		
+        try {
+			entrada = reader.readLine();
+			smallBufferSize = Integer.parseInt(entrada);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
 		cantDeNiveles = 3;
 		cantDeProcesos = 3;
-		bigBufferSize = 2;
-		smallBufferSize = 1;
-		cantMensajes = 45;
 		
 		Buffer startBuffer = new Buffer(bigBufferSize, "Start Buffer");
 		StartNode startNode = new StartNode(cantMensajes, startBuffer);

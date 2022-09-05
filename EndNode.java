@@ -35,8 +35,10 @@ public class EndNode extends Thread {
 	public void run() {
 		while(n!=0) {
 				String downloadedMessage = entryBuffer.activeUnload();
-				message = message + downloadedMessage;
-				if(!downloadedMessage.equals("")) {
+				if(downloadedMessage.equals("FIN")) {
+					System.out.println("me llego un FIN");
+				} else if(!downloadedMessage.equals("")) {
+					message = message + downloadedMessage + "\n";
 					n--;
 					System.out.println("Baje algo: "+ message);
 				}			

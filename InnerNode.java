@@ -44,16 +44,22 @@ public class InnerNode extends Thread {
 	
 	@Override
 	public void run() {
-		while(true) {
+		boolean end = false;
+		while(!end) {
 			payload = entryBuffer.unload();
-			payload = payload + "T" + levelId + innerProcessId;
-			try {
-				Thread.sleep(ThreadLocalRandom.current().nextInt(50, 500));
-			} catch (InterruptedException e) {
-				e.printStackTrace();
+			if(!payload.equals("FIN")) {
+				payload = payload + "T" + levelId + innerProcessId;
+				try {
+					Thread.sleep(ThreadLocalRandom.current().nextInt(50, 500));
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+			} else {
+				end = true;
 			}
 			deliveryBuffer.load(payload);
 		}
+		System.out.println("El proceso " + levelId + innerProcessId + " terminó.");
 	}
 
 	public Buffer getEntryBuffer() {
